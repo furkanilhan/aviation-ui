@@ -4,7 +4,6 @@ const axiosInstance = axios.create({
   baseURL: 'http://localhost:8080/api/v1',
 });
 
-// Her request'e token ekle
 axiosInstance.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
@@ -13,7 +12,6 @@ axiosInstance.interceptors.request.use((config) => {
   return config;
 });
 
-// 401 gelirse login'e yönlendir
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
