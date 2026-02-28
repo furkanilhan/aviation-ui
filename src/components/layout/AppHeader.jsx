@@ -20,7 +20,7 @@ const AppHeader = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      background: '#001529',
+      background: '#232b38',
       padding: '0 24px'
     }}>
       <Typography.Title level={4} style={{ color: 'white', margin: 0 }}>

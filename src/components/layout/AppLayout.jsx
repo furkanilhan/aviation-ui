@@ -7,7 +7,7 @@ const { Content, Sider } = Layout;
 
 const AppLayout = () => {
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ overflow: 'auto' }}>
       <AppHeader />
       <Layout>
         <Sider width={200} style={{ background: '#fff' }}>
@@ -18,7 +18,6 @@ const AppLayout = () => {
             background: '#fff',
             padding: 24,
             borderRadius: 8,
-            minHeight: 280
           }}>
             <Outlet />
           </Content>
