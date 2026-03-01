@@ -4,8 +4,7 @@ import {
   Typography, Drawer, Steps, Tag, message, Space
 } from 'antd';
 import { SearchOutlined, SwapRightOutlined } from '@ant-design/icons';
-import { getLocations } from '../api/locationApi';
-import { searchRoutes } from '../api/routeApi';
+import { searchRoutes, getLocationsForRoute } from '../api/routeApi';
 import RouteMap from '../components/RouteMap';
 import dayjs from 'dayjs';
 
@@ -38,7 +37,7 @@ const RoutesPage = () => {
   const [messageApi, contextHolder] = message.useMessage();
 
   useEffect(() => {
-    getLocations()
+    getLocationsForRoute()
       .then(res => setLocations(res.data))
       .catch(() => messageApi.error('Failed to fetch locations'));
   }, []);
