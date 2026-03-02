@@ -94,7 +94,7 @@ const RoutesPage = () => {
     if (route.beforeFlight) {
       items.push({
         title: route.beforeFlight.originLocation.name,
-        description: (
+        content: (
           <Tag color={TYPE_COLORS[route.beforeFlight.transportationType]}>
             {TYPE_ICONS[route.beforeFlight.transportationType]}{' '}
             {route.beforeFlight.transportationType}
@@ -105,7 +105,7 @@ const RoutesPage = () => {
 
     items.push({
       title: route.flight.originLocation.name,
-      description: (
+      content: (
         <Tag color={TYPE_COLORS.FLIGHT}>
           {TYPE_ICONS.FLIGHT} FLIGHT
         </Tag>
@@ -114,7 +114,7 @@ const RoutesPage = () => {
 
     items.push({
       title: route.flight.destinationLocation.name,
-      description: route.afterFlight ? (
+      content: route.afterFlight ? (
         <Tag color={TYPE_COLORS[route.afterFlight.transportationType]}>
           {TYPE_ICONS[route.afterFlight.transportationType]}{' '}
           {route.afterFlight.transportationType}
@@ -125,7 +125,7 @@ const RoutesPage = () => {
     if (route.afterFlight) {
       items.push({
         title: route.afterFlight.destinationLocation.name,
-        description: null,
+        content: null,
       });
     }
 
@@ -223,14 +223,14 @@ const RoutesPage = () => {
       <Drawer
         title="Route Details"
         placement="right"
-        width={480}
+        size={480}
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         >
         {selectedRoute && (
             <>
             <Steps
-                direction="vertical"
+                orientation="vertical"
                 items={getStepsItems(selectedRoute)}
                 style={{ marginBottom: 24 }}
             />
