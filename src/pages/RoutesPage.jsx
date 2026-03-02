@@ -40,7 +40,7 @@ const RoutesPage = () => {
     getLocationsForRoute()
       .then(res => setLocations(res.data))
       .catch(() => messageApi.error('Failed to fetch locations'));
-  }, []);
+  }, [messageApi]);
 
   const handleSearch = async () => {
     if (!originId || !destinationId || !date) {
@@ -80,8 +80,8 @@ const RoutesPage = () => {
   };
 
   const getRouteVia = (route) => {
-    return `via ${route.flight.originLocation.name} (${route.flight.originLocation.locationCode})`;
-  };
+    return `via ${route.flight.originLocation.locationCode} → ${route.flight.destinationLocation.locationCode}`;
+};
 
   const locationOptions = locations.map(loc => ({
     label: `${loc.name} (${loc.locationCode})`,
